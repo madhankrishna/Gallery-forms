@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+
+        body{
+            background-color: black;
+            color: white;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .container img {
+              object-fit: cover;
+              margin: 10px;
+              height: 300px;
+              width: 300px;
+              max-width: 100%;
+              cursor: pointer;
+        }
+        .popup{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center ;
+            z-index: 2;
+        }
+        span{
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            font-size: 30px;
+            color: silver;
+            cursor: pointer;
+        }
+
+        h1{
+            text-align: center;
+            font-family: cursive;
+            font-weight: 100;
+            font-size: 2.8em;
+            margin: 30px;
+        }
+
+        .Subscribe{
+            font-family: cursive;
+            width: 500px;
+            margin: auto;
+        }
+        .inputs{
+            width: 400px; 
+            margin-bottom: 20px;
+            padding: 20px; 
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 1em;
+            font-weight: 100;
+            background-color:rgb(15, 15, 15);
+            color:white
+
+        }
+        .btn{
+	        text-decoration:none;
+            background-color:#ffffff;
+	        display:inline-block;
+	        color:black;
+	        font-size:20px;
+	        font-weight: 300;
+	        padding:6px 17px;
+            margin-top: 12px;
+            margin-right: 30px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+            <img src="https://source.unsplash.com/random/305x307" alt="1" onclick="showPopup(this.src)">
+            <img src="https://source.unsplash.com/random/309x302" alt="2" onclick="showPopup(this.src)">
+            <img src="https://source.unsplash.com/random/309x308" alt="3" onclick="showPopup(this.src)">
+            <img src="https://source.unsplash.com/random/309x305" alt="4" onclick="showPopup(this.src)">
+            <img src="https://source.unsplash.com/random/303x303" alt="5" onclick="showPopup(this.src)">
+            <img src="https://source.unsplash.com/random/302x304" alt="6" onclick="showPopup(this.src)">
+    </div>
+    <div class="popup" id="popuplayer">
+        <img src="https://source.unsplash.com/random/302x304" alt="" id="img">
+        <span onclick="closeimg()">x</span>
+    </div>
+
+    <h1>Subscription Form</h1>
+    <div class="Subscribe">
+        <form action="">
+            <input type="text" name="name"  placeholder="Name" required class="inputs"/>
+            <input type="email" name="email"  placeholder="Email" required class="inputs"/>
+            <a href="#" class="btn">Subscribe</a>
+        </form>
+    </div>
+
+    <h1>Query Form</h1>
+    <div class="Subscribe">
+        <form action="">
+            <input type="text" name="name"  placeholder="Name" required class="inputs"/>
+            <textarea name="Query" cols="30" rows="10" class="inputs" placeholder="Your Query Plse..." style="resize: none;"></textarea>
+            <a href="#" class="btn">Query</a>
+        </form>
+    </div>
+
+    <h1>Contact-us Form</h1>
+    <div class="Subscribe">
+        <form action="">
+            <input type="text" name="name"  placeholder="Name" required class="inputs"/>
+            <input type="email" name="email"  placeholder="Email" required class="inputs"/>
+            <textarea name="Query" cols="30" rows="10" class="inputs" placeholder="Your Message Plse..." style="resize: none;"></textarea>
+            <a href="#" class="btn">Contact</a>
+
+        </form>
+    </div>
+    <script>
+        var popuplayer=document.getElementById('popuplayer');
+        var img=document.getElementById('img');
+
+        function showPopup(sources){
+            img.src=sources;
+            popuplayer.style.display="flex";
+        }  
+        function closeimg(){
+            popuplayer.style.display="none";
+        }
+    </script>
+</body>
+</html>
